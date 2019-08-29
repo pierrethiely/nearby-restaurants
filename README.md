@@ -4,7 +4,7 @@ This project is generated with [**Angular CLI**](https://github.com/angular/angu
 
 # **How to use it ?**
 
-- Just clone this repository with **git clone ht<span><span>tps://www.github.com/pierrethiely/nearby-restaurants.git** to get the project on your PC.
+- Just clone this repository with **git clone https://www.github.com/pierrethiely/nearby-restaurants.git** to get the project on your PC.
 - Open the project and use the command **npm install** to install all the dependancies.
 - For security reasons, I've hidden my API key, if you don't already have one, you can get one [**here**](https://developers.google.com/maps/documentation/javascript/get-api-key). 
 - Once you have a **Google API key** to use JavaScript Maps, replace the string **YOUR_GOOGLE_API_KEY** (4 times) by your API key to use the project properly.
