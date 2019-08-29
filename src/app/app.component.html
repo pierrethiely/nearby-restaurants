@@ -1,0 +1,39 @@
+<div class="col-xs-3 text-center">
+  <h1>RESTAURANTS</h1>
+  <div class="list-restaurants">
+    <app-restaurant-form *ngIf="restaurantService.isAdding"></app-restaurant-form>
+    <app-restaurants-list *ngIf="!restaurantService.isAdding"></app-restaurants-list>       
+  </div>
+  <app-filter></app-filter>
+</div>
+<div class="col-xs-9 view">  
+  <agm-map  [zoom]='12'
+            [latitude]='lat'
+            [longitude]='lng'
+            (mapClick)="mapClicked($event)"
+            maxZoom="17" minZoom="5">
+    <agm-marker [latitude]='lat'
+                [longitude]='lng'
+                iconUrl='http://maps.google.com/mapfiles/ms/icons/blue-pushpin.png'
+                animation="DROP">
+      <agm-info-window isOpen='true'>
+        <strong>Vous êtes ici !</strong>
+      </agm-info-window>
+    </agm-marker>
+    <div *ngFor="let restaurant of restaurantService.restaurants, let i = index">
+      <div *ngIf="restaurantService.getAverageRating(i) >= restaurantService.filterMin && restaurantService.getAverageRating(i) <= restaurantService.filterMax">
+        <agm-marker 
+                [latitude]="restaurant.lat"
+                [longitude]="restaurant.long"
+                iconUrl='http://maps.google.com/mapfiles/ms/icons/restaurant.png'
+                animation="DROP">
+          <agm-info-window>
+            <strong>{{ restaurant.restaurantName }}</strong>
+            <p>{{ restaurant.address }}</p>
+          </agm-info-window>
+        </agm-marker>
+      </div>
+    </div>
+  </agm-map>
+</div>
+<router-outlet></router-outlet>

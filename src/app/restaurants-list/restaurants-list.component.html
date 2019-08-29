@@ -1,0 +1,74 @@
+<h6 *ngIf="restaurantService.tempoRestaurants.length === 0">Aucun restaurant ne correspond à votre recherche.</h6>
+<div id="restaurantlist" *ngFor="let restaurant of restaurantService.restaurants; let i = index">
+  <div *ngIf="restaurantService.getAverageRating(i) >= restaurantService.filterMin && restaurantService.getAverageRating(i) <= restaurantService.filterMax">
+    <div class="allRestaurant">
+      <div class="list-group-item" id="restaurant{{ i }}">
+        <h2>{{ restaurant.restaurantName }}</h2>
+        <ng-template #t let-fill="fill">
+          <span class="star" [class.full]="fill === 100">
+            <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+          </span>
+        </ng-template>
+        <ngb-rating [rate]="this.restaurantService.getAverageRating(i)" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating><br>
+        <a href="#restaurant{{ i }}"><button class="btn" (click)='addOpinion(i)'>Ajouter un avis</button></a>
+        <a href="#restaurant{{ i }}"><button class="btn" (click)='restaurantService.initComments(i)'>Voir les avis</button></a>
+        <a href="#restaurant{{ i }}"><button class="btn" (click)='showDetails(i)'>Détails</button></a>
+      </div>
+      <div class="list-group-item" *ngIf='restaurantService.restaurants[i].showOpinions'>
+        <p class='close' (click)="close()">&times;</p>
+        <h4>Commentaires :</h4>
+        <h5 *ngIf="restaurantService.comments.length === 0">Aucun commentaire.</h5>
+        <p class='comments' *ngFor='let comment of restaurantService.comments'>
+          <span *ngIf="comment !== null ">- "{{ comment }}"</span>
+        <p>
+      </div>
+      <div class="list-group-item" *ngIf="restaurantService.restaurants[i].addOpinion">
+        <p class='close' (click)="close()">&times;</p>
+        <form [formGroup]="newOpinionForm" (ngSubmit)="onSubmit(i)">
+          <label for="stars">Note</label><br>
+          <div class="rating">        
+            <label>
+              <input type="radio" name="stars" value="1" formControlName='stars'>
+              <span class="icon">&#9733;</span>
+            </label>
+            <label>
+              <input type="radio" name="stars" value="2" formControlName='stars'>
+              <span class="icon">&#9733;</span>
+              <span class="icon">&#9733;</span>
+            </label>
+            <label>
+              <input type="radio" name="stars" value="3" formControlName='stars'>
+              <span class="icon">&#9733;</span>
+              <span class="icon">&#9733;</span>
+              <span class="icon">&#9733;</span>   
+            </label>
+            <label>
+              <input type="radio" name="stars" value="4" formControlName='stars'>
+              <span class="icon">&#9733;</span>
+              <span class="icon">&#9733;</span>
+              <span class="icon">&#9733;</span>
+              <span class="icon">&#9733;</span>
+            </label>
+            <label>
+              <input type="radio" name="stars" value="5" formControlName='stars'>
+              <span class="icon">&#9733;</span>
+              <span class="icon">&#9733;</span>
+              <span class="icon">&#9733;</span>
+              <span class="icon">&#9733;</span>
+              <span class="icon">&#9733;</span>
+            </label>
+          </div><br>
+          <hr>    
+          <label for="opinion">Votre avis</label><br>
+          <textarea name="opinion" id="opinion" cols="50" rows="8" placeholder="Donnez-nous votre avis ..." formControlName='comment'></textarea>
+        </form>
+        <button class="btn outline" (click)="onSubmit(i)" [disabled]="newOpinionForm.invalid">Enregistrer mon avis</button>
+      </div>
+      <div class="list-group-item" *ngIf="restaurantService.restaurants[i].showDetails">
+        <p class='close' (click)="close()">&times;</p>
+        <label>{{ restaurant.address }}</label><br>
+        <iframe id="streetview{{ i }}" allowfullscreen width="100%" height="250" [src]='displayStreetViews(i)'></iframe>
+      </div>
+    </div>
+  </div>
+</div>

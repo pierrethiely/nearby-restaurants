@@ -1,0 +1,69 @@
+agm-map {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: white;
+    font-weight: 800;
+    font-family: 'Perpetua Titling MT';
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+div {    
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+div.text-center {
+    border-right: 2px solid black;
+    box-shadow: 3px 0px 3px 3px;
+    background-color: #c88623;
+    z-index: 1;
+}
+
+button {
+    color: white;
+    background-color: #c88623;
+    border: 1px solid white;
+}
+
+button:hover {
+    color: #c88623;
+    background-color: white;
+}
+
+button:active {
+    color: white;
+    background-color: #c88623;
+    border: 1px solid white;
+}
+
+.list-restaurants {
+    height: 82vh;
+    margin: 20px 0px 10px 0px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    background-color: white;
+    overflow: auto;
+}
+
+.view {
+    height: 100vh;
+}
+
+.filter {
+    height: auto;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #c88623;
+    border-radius: 5px;
+}

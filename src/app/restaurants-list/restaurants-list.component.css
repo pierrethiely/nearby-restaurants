@@ -1,0 +1,158 @@
+*:focus {
+    outline: none;
+}
+
+h2 {
+    margin: 0;
+    font-family: 'Perpetua Titling MT';
+}
+
+h4 {
+    font-family: 'Perpetua Titling MT';
+    font-weight: 700;
+}
+
+label {
+    font-family: 'Perpetua Titling MT';
+    font-weight: 450;
+}
+
+button {
+    margin: 5px;
+    background-color: #c88623;
+    color: white;
+}
+
+button:hover {
+    color: #c88623;
+    background-color: white;
+    border: 1px solid #c88623;
+}
+
+textarea {
+    border: 1px solid #c88623;
+    padding-left: 7px;
+    max-width: 100%;
+}
+
+span.star, span.half {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#restaurantlist {
+    overflow: auto, scroll;
+}
+
+.allRestaurant {
+    border-bottom: 1px solid black;
+}
+
+.hidden {
+    display: none;
+}
+
+.comments {
+    text-align: left;
+}
+
+.outline {
+    color: #c88623;
+    border: 1px solid #c88623;
+    background-color: white;
+}
+
+.outline:hover {
+    color: white;
+    border: 1px solid white;
+    background-color: #c88623;
+}
+
+::placeholder {
+    color: rgb(185, 185, 185);
+}
+
+/* CSS Star Rating */
+
+.rating {
+    display: inline-block;
+    position: relative;
+    font-size: 40px;
+    height: 57px;
+}
+ 
+.rating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 57px;
+    cursor: pointer;
+}
+  
+.rating label:last-child {
+    position: static;
+}
+  
+.rating label:nth-child(1) {
+    z-index: 5;
+}
+  
+.rating label:nth-child(2) {
+    z-index: 4;
+}
+  
+.rating label:nth-child(3) {
+    z-index: 3;
+}
+  
+.rating label:nth-child(4) {
+    z-index: 2;
+}
+  
+.rating label:nth-child(5) {
+    z-index: 1;
+}
+  
+.rating label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+  
+.rating label .icon {
+    float: left;
+    color: transparent;
+}
+  
+.rating label:last-child .icon {
+    color: rgb(185, 185, 185);
+}
+  
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+    color: #c88623;
+}
+  
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+    color: #c88623;
+}
+
+.star {
+    position: relative;
+    display: inline-block;
+    font-size: 3.5rem;
+    color: #d3d3d3;
+    margin-top: -7px;
+    margin-bottom: -5px;
+}
+
+.full {
+    color: #c88623;
+}
+
+.half {
+    position: absolute;
+    display: inline-block;
+    overflow: hidden;
+    color: #c88623;
+}

@@ -1,0 +1,43 @@
+@media screen and (max-width: 1230px) {
+    .filter, .col-xs-12, button {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 1065px) {
+    .filter, .col-xs-12, button {
+        font-size: 10px;
+    }
+}
+
+label {
+    color: white;
+}
+
+select {
+    background-color: white;
+    color: #c88623;
+    font-family: 'Trebuchet MS';
+}
+
+button {
+    color: white;
+    background-color: #c88623;
+    border: 1px solid white;
+}
+
+button:hover {
+    color: #c88623;
+    background-color: white;
+}
+
+.col-xs-4 {
+    padding: 0px;
+    height: auto;
+}
+
+.center {
+    display: block;
+    margin-top: 10px;
+    float: right !important;
+}

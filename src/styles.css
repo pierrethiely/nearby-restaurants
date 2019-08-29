@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@media screen and (max-width: 1435px) {
+    .btn {
+        font-size: 11px;
+        margin: 0;
+        padding: 5;
+    }
+}
+

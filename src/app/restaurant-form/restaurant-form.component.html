@@ -1,0 +1,47 @@
+<div id="restaurantlist">
+  <div class="list-group-item">
+    <form [formGroup]='newRestaurantForm' (ngSubmit)='onSubmit()'>
+      <label for="restaurantName">Nom du restaurant <span class="text-danger">*</span></label>
+      <input type="text" name="restaurantName" class="form-control" formControlName='name'><br>
+      <label for="adress">Adresse du restaurant <span class="text-danger">*</span></label>
+      <input type="text" name="adress" class="form-control" disabled="disabled" formControlName='address'><br>
+      <label for="stars" class="note">Note <span class="text-danger">*</span></label><br>
+      <div class="rating">        
+        <label>
+          <input type="radio" name="stars" value="1" formControlName='stars'>
+          <span class="icon">&#9733;</span>
+        </label>
+        <label>
+          <input type="radio" name="stars" value="2" formControlName='stars'>
+          <span class="icon">&#9733;</span>
+          <span class="icon">&#9733;</span>
+        </label>
+        <label>
+          <input type="radio" name="stars" value="3" formControlName='stars'>
+          <span class="icon">&#9733;</span>
+          <span class="icon">&#9733;</span>
+          <span class="icon">&#9733;</span>   
+        </label>
+        <label>
+          <input type="radio" name="stars" value="4" formControlName='stars'>
+          <span class="icon">&#9733;</span>
+          <span class="icon">&#9733;</span>
+          <span class="icon">&#9733;</span>
+          <span class="icon">&#9733;</span>
+        </label>
+        <label>
+          <input type="radio" name="stars" value="5" formControlName='stars'>
+          <span class="icon">&#9733;</span>
+          <span class="icon">&#9733;</span>
+          <span class="icon">&#9733;</span>
+          <span class="icon">&#9733;</span>
+          <span class="icon">&#9733;</span>
+        </label>
+      </div><br>
+      <label for="restaurantName">Avis <span class="text-danger">*</span></label><br>
+      <textarea class="form-control" cols="30" rows="10" formControlName='comment' placeholder="(5 caractères minimum)"></textarea><br>
+    </form>
+    <button class="btn" type="submit" (click)="onSubmit()" [disabled]="newRestaurantForm.invalid">Enregistrer</button>
+    <button class="btn" type="submit" (click)="restaurantService.cancelRestaurant()">Annuler</button>
+  </div>
+</div>

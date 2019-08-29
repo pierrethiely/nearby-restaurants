@@ -1,0 +1,86 @@
+*:focus {
+    outline: none;
+}
+
+button {
+    margin: 5px;
+    background-color: #c88623;
+    color: white;
+}
+
+button:hover {
+    color: #c88623;
+    background-color: white;
+    border: 1px solid #c88623;
+}
+
+#restaurantlist {
+    max-height: 82vh;
+    overflow: auto;
+}
+
+/* CSS Star Rating */
+
+.rating {
+    display: inline-block;
+    position: relative;
+    font-size: 40px;
+    height: 57px;
+}
+ 
+.rating label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 57px;
+    cursor: pointer;
+}
+  
+.rating label:last-child {
+    position: static;
+}
+  
+.rating label:nth-child(1) {
+    z-index: 5;
+}
+  
+.rating label:nth-child(2) {
+    z-index: 4;
+}
+  
+.rating label:nth-child(3) {
+    z-index: 3;
+}
+  
+.rating label:nth-child(4) {
+    z-index: 2;
+}
+  
+.rating label:nth-child(5) {
+    z-index: 1;
+}
+  
+.rating label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+  
+.rating label .icon {
+    float: left;
+    color: transparent;
+}
+  
+.rating label:last-child .icon {
+    color: rgb(185, 185, 185);
+}
+  
+.rating:not(:hover) label input:checked ~ .icon,
+.rating:hover label:hover input ~ .icon {
+    color: #c88623;
+}
+  
+.rating label input:focus:not(:checked) ~ .icon:last-child {
+    color: #c88623;
+}
